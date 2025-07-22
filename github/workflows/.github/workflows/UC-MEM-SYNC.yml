@@ -1,0 +1,26 @@
+name: UC-MEM-SYNC
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'UC-ZQT 數據/**'
+      - 'webhook_trigger.txt'
+
+  workflow_dispatch:  # 允許手動觸發
+
+jobs:
+  sync-memory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 檢出程式碼
+        uses: actions/checkout@v4
+
+      - name: 顯示觸發資訊
+        run: echo "UC-MEM-SYNC 工作流程已被觸發！"
+
+      - name: 模擬同步程序
+        run: |
+          echo "正在處理 UC-ZQT 封印 × 記憶同步..."
+          echo "（此區可替換為 curl/post 調用、Python 腳本等操作）"
